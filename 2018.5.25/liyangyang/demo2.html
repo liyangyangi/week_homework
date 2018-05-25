@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var source = "Since his code is opensource, I have decided to fix it and integrate it into my extension SteemPlus. Our code structures being very different, this was a two men jobs for several weeks but we're finally done."
+
+    function dictionary(source){
+        var str = source.toLowerCase().split(" ");
+        console.log(str)
+
+        // 大写
+        for (i = 0; i < str.length; i++) {
+            str[i] = str[i].slice(0, 1).toUpperCase() + str[i].slice(1);
+        } 
+        //排序
+        str.sort();
+
+        // 去重
+        Array.prototype.quchong = function(){
+            var res = [];
+            var json = {};
+            for(var i = 0; i < this.length; i++){
+                if(!json[this[i]]){
+                    res.push(this[i]);
+                    json[this[i]] = 1;
+                }
+            }
+            return res;
+        }
+
+        return str.quchong();
+    }
+    console.log(dictionary(source));
+
+    
+</script>
+</html>
